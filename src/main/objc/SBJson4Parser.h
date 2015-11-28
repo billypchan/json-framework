@@ -245,4 +245,36 @@ typedef id (^SBJson4ProcessBlock)(id item, NSString* path);
  */
 - (SBJson4ParserStatus)parse:(NSData*)data;
 
+///SBJson4ParserWithDelegate functions, allow extend this class and access low level callbacks
+
+/// Called when object start is found
+- (void)parserFoundObjectStart;
+
+/// Called when object key is found
+- (void)parserFoundObjectKey:(NSString *)key;
+
+/// Called when object end is found
+- (void)parserFoundObjectEnd;
+
+/// Called when array start is found
+- (void)parserFoundArrayStart;
+
+/// Called when array end is found
+- (void)parserFoundArrayEnd;
+
+/// Called when a boolean value is found
+- (void)parserFoundBoolean:(BOOL)x;
+
+/// Called when a null value is found
+- (void)parserFoundNull;
+
+/// Called when a number is found
+- (void)parserFoundNumber:(NSNumber *)num;
+
+/// Called when a string is found
+- (void)parserFoundString:(NSString *)string;
+
+/// Called when an error occurs
+- (void)parserFoundError:(NSError *)err;
+
 @end
